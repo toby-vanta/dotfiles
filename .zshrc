@@ -1,6 +1,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 export LANG=en_US.UTF-8
 export EDITOR='vim'
+export DISABLE_V8_COMPILE_CACHE=1
 
 ZSH_THEME="toby"
 HIST_STAMPS="yyyy-mm-dd"
