@@ -10,5 +10,8 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 alias vi='vim'
-alias obup='yarn post-pull && make dev-start-web'
+alias obup='git pp && yarn pp'
+# ripgrep is installed by default, so just alias The Silver Searcher to that so
+# I don't have to relearn how to type...
+alias ag='rg'
 
