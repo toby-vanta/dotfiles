@@ -8,6 +8,7 @@ export LANG=en_US.UTF-8
 export EDITOR='vim'
 export PAGER='less -F'
 export DISABLE_V8_COMPILE_CACHE=1
+export DEV_LOG_FORMAT="json"
 
 ZSH_THEME="toby"
 HIST_STAMPS="yyyy-mm-dd"
