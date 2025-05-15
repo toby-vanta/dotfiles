@@ -22,6 +22,6 @@ alias vi='vim'
 alias ag='rg'
 
 # MongoDB shell shortcuts
-alias lmsh='mongosh "mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000"'
-alias gmsh='mongosh "mongodb://127.0.0.1:27018/?directConnection=true&serverSelectionTimeoutMS=2000"'
+alias lmsh='mongosh "mongodb://127.0.0.1:27017/obsidian?directConnection=true&serverSelectionTimeoutMS=2000"'
+alias gmsh='mongosh "mongodb://127.0.0.1:27018/obsidian?directConnection=true&serverSelectionTimeoutMS=2000"'
 
