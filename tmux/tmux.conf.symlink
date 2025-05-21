@@ -18,7 +18,11 @@ set -g base-index 0
 # Use vi bindings
 setw -g mode-keys vi
 
-set -s escape-time 0
+# A setting of `0` here results in junk escape characters being emitted into
+# the terminal when using tmux with the VS Code Terminal over SSH. Setting this
+# to 20 (milliseconds) seems to resolve it. See
+# https://github.com/PowerShell/Win32-OpenSSH/issues/2275#issuecomment-2479919903
+set -sg escape-time 20
 
 # Remap window navigation to vim
 unbind-key j
