@@ -7,8 +7,6 @@ default-command = "log"
 editor = "vim"
 
 [aliases]
-# `jj l` shows all the commits
 l = ["log", "-r", "::@"]
-# `jj lm` shows commits on the working-copy commit's (anonymous) bookmark
-# compared to the `main` bookmark
 lm = ["log", "-r", "(main..@):: | (main..@)-"]
+la = ["log", "-r", "::"]
