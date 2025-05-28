@@ -76,12 +76,9 @@ install_dotfiles() {
   done
 }
 
-install_vundle() {
-  if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-  fi
-  vim +PluginInstall +qall || true
-  success "installed Vundle"
+install_jj_config() {
+  mkdir -p $HOME/.config/jj
+  ln -s $DOTFILES_ROOT/jj/config.toml $HOME/.config/jj/config.toml
 }
 
 use_zsh() {
@@ -101,9 +98,17 @@ install_omz_theme() {
   ln -s $DOTFILES_ROOT/zsh/toby.zsh-theme ~/.oh-my-zsh/themes/toby.zsh-theme
 }
 
+install_vundle() {
+  if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
+    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+  fi
+  vim +PluginInstall +qall || true
+  success "installed Vundle"
+}
+
 install_homebrew() {
   NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  eval "$($HOME/.linuxbrew/bin/brew shellenv)"
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
   brew update --force
   for pkg in $HOMEBREW_PKGS; do
     brew install $pkg
@@ -123,6 +128,7 @@ install_dependencies() {
 
 echo ''
 install_dotfiles
+install_jj_config
 install_dependencies
 echo ''
 echo '  All installed!'

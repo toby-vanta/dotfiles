@@ -8,20 +8,23 @@ export LANG=en_US.UTF-8
 export EDITOR='vim'
 export PAGER='less -F'
 export DISABLE_V8_COMPILE_CACHE=1
-export DEV_LOG_FORMAT="json"
 
 ZSH_THEME="toby"
 HIST_STAMPS="yyyy-mm-dd"
 plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
+# Set up Homebrew
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
 alias ls='ls --color'
 alias vi='vim'
 # ripgrep is installed by default, so just alias The Silver Searcher to that so
 # I don't have to relearn how to type...
 alias ag='rg'
-
 # MongoDB shell shortcuts
 alias lmsh='mongosh "mongodb://127.0.0.1:27017/obsidian?directConnection=true&serverSelectionTimeoutMS=2000"'
 alias gmsh='mongosh "mongodb://127.0.0.1:27018/obsidian?directConnection=true&serverSelectionTimeoutMS=2000"'
 
+# obsidian repo env var to always log in JSON format
+export DEV_LOG_FORMAT="json"
