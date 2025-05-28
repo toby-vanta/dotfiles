@@ -2,6 +2,7 @@
 set -e
 
 DOTFILES_ROOT="`pwd`"
+HOMEBREW_PKGS=(jj bottom duf)
 
 info() {
   printf "  [ \033[00;34m..\033[0m ] $1"
@@ -100,6 +101,15 @@ install_omz_theme() {
   ln -s $DOTFILES_ROOT/zsh/toby.zsh-theme ~/.oh-my-zsh/themes/toby.zsh-theme
 }
 
+install_homebrew() {
+  NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  eval "$($HOME/.linuxbrew/bin/brew shellenv)"
+  brew update --force
+  for pkg in $HOMEBREW_PKGS; do
+    brew install $pkg
+  done
+}
+
 install_dependencies() {
   info 'installing dependencies'
   if [ ! -z "$CODESPACES" ]; then
@@ -107,6 +117,7 @@ install_dependencies() {
     install_omz
     install_omz_theme
     install_vundle
+    install_homebrew
   fi
 }
 

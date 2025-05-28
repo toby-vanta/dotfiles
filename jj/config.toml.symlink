@@ -1,0 +1,7 @@
+[user]
+name = "Toby DiPasquale"
+email = "toby.dipasquale@vanta.com"
+
+[ui]
+default-command = "log"
+editor = "vim"
