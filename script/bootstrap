@@ -2,7 +2,6 @@
 set -e
 
 DOTFILES_ROOT="`pwd`"
-HOMEBREW_PKGS=(jj bottom duf)
 
 info() {
   printf "  [ \033[00;34m..\033[0m ] $1"
@@ -110,7 +109,7 @@ install_homebrew() {
   NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
   brew update --force
-  for pkg in $HOMEBREW_PKGS; do
+  for pkg in jj bottom duf; do
     brew install $pkg
   done
 }
