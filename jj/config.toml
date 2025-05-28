@@ -4,6 +4,7 @@ email = "toby.dipasquale@vanta.com"
 
 [ui]
 default-command = "log"
+diff.format = "git"
 editor = "vim"
 
 [aliases]
