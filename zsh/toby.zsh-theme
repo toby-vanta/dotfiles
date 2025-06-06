@@ -23,5 +23,5 @@ ZSH_THEME_GIT_PROMPT_CLEAN=""
 # Prompt format
 #PROMPT='%{$GREEN_BOLD%}%n@%m%{$WHITE%}:%{$YELLOW%}%~%u$(parse_git_dirty)$(git_prompt_ahead)%{$RESET_COLOR%}
 #%{$BLUE%}>%{$RESET_COLOR%} '
-PROMPT='%{$YELLOW%}%T %{$GREEN_BOLD%}%n@%m%{$WHITE%}: %{$CYAN%}%~%u %{$WHITE%}%{$YELLOW%}$(git_current_branch)%{$WHITE%}$(parse_git_dirty)%{$RESET_COLOR%}
+PROMPT='%{$YELLOW%}%T %{$GREEN_BOLD%}%n@%m%{$WHITE%}: %{$CYAN%}%~%u%{$RESET_COLOR%}
 > '
