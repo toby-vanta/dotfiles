@@ -7,6 +7,9 @@ default-command = "log"
 diff-formatter = ":git"
 editor = "vim"
 
+[git]
+push-bookmark-prefix = "toby-vanta/push-"
+
 [aliases]
 l = ["log", "-r", "::@"]
 lm = ["log", "-r", "(main..@):: | (main..@)-"]
