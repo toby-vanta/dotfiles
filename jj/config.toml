@@ -14,3 +14,7 @@ push-bookmark-prefix = "toby-vanta/push-"
 l = ["log", "-r", "::@"]
 lm = ["log", "-r", "(main..@):: | (main..@)-"]
 la = ["log", "-r", "::"]
+
+[revset-aliases]
+open = 'bookmarks(regex:"^toby-vanta/push-*")'
+
