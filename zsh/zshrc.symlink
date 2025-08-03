@@ -29,6 +29,8 @@ alias gmsh='mongosh "mongodb://127.0.0.1:27018/obsidian?directConnection=true&se
 alias dps='docker ps --format "table {{.ID}}\t{{.State}}\t{{.Names}}" -a'
 alias dkillall='docker kill $(docker ps -q)'
 alias drmall='docker rm $(docker ps -qa)'
+# obsidian shortcuts
+alias findLoginLink='docker compose logs --no-log-prefix web.internal | grep loginLink | jq -r .loginLink'
 
 # obsidian repo env var to always log in JSON format
 export DEV_LOG_FORMAT="json"
