@@ -25,6 +25,11 @@ alias ag='rg'
 # MongoDB shell shortcuts
 alias lmsh='mongosh "mongodb://127.0.0.1:27017/obsidian?directConnection=true&serverSelectionTimeoutMS=2000"'
 alias gmsh='mongosh "mongodb://127.0.0.1:27018/obsidian?directConnection=true&serverSelectionTimeoutMS=2000"'
+# Docker shortcuts
+alias dps='docker ps --format "table {{.ID}}\t{{.State}}\t{{.Names}}" -a'
+alias dkillall='docker kill $(docker ps -q)'
+alias drmall='docker rm $(docker ps -qa)'
 
 # obsidian repo env var to always log in JSON format
 export DEV_LOG_FORMAT="json"
+
