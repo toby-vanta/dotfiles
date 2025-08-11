@@ -8,7 +8,7 @@ diff-formatter = ":git"
 editor = "vim"
 
 [templates]
-git_push_bookmark = '"toby-vanta/push-" ++ change_id.short()'
+git_push_bookmark = '"toby/" ++ change_id.short()'
 
 [aliases]
 l = ["log", "-r", "::@"]
@@ -17,5 +17,5 @@ la = ["log", "-r", "::"]
 rba = ["rebase", "-b", "all:open", "-d", "main"]
 
 [revset-aliases]
-open = 'bookmarks(regex:"^toby-vanta/push-*")'
+open = 'bookmarks(regex:"^toby/*")'
 
