@@ -20,6 +20,9 @@ set -e
 reportgenerator -reports:packages/${PROJECT}/coverage/clover.xml -targetdir:coverage
 
 # Serve the results on port 8000
+echo
+echo "Results: http://127.0.0.1:8000/"
+echo
 cd coverage
 python3 -m http.server
 
