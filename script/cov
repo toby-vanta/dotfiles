@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+set -eo pipefail
+
+PROJECT="$1"
+
+if [ "$PROJECT" = "" ]; then
+  echo >&2 "usage: $0 <package/app>"
+  exit 1
+fi
+
+cd /workspaces/obsidian
+
+# Generate the coverage report data
+just coverage-project $PROJECT
+
+# Convert it into HTML
+set +e
+[ -d coverage ] && rm -rf coverage
+set -e
+reportgenerator -reports:packages/${PROJECT}/coverage/clover.xml -targetdir:coverage
+
+# Serve the results on port 8000
+cd coverage
+python3 -m http.server
+
