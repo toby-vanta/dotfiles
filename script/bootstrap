@@ -114,6 +114,11 @@ install_homebrew() {
   done
 }
 
+install_reportgenerator() {
+  brew install dotnet
+  dotnet tool install -g dotnet-reportgenerator-globaltool
+}
+
 install_dependencies() {
   info 'installing dependencies'
   if [ ! -z "$CODESPACES" ]; then

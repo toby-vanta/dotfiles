@@ -35,3 +35,7 @@ alias findLoginLink='docker compose logs --no-log-prefix web.internal | grep log
 # obsidian repo env var to always log in JSON format
 export DEV_LOG_FORMAT="json"
 
+# To be able to run `reportgenerator`
+export PATH="$PATH:$HOME/.dotnet/tools"
+export DOTNET_ROOT="/home/linuxbrew/.linuxbrew/opt/dotnet/libexec"
+
