@@ -14,7 +14,7 @@ git_push_bookmark = '"toby/" ++ change_id.short()'
 l = ["log", "-r", "::@"]
 lm = ["log", "-r", "(main..@):: | (main..@)-"]
 la = ["log", "-r", "::"]
-rba = ["rebase", "-b", "all:open", "-d", "main"]
+rba = ["rebase", "-b", "open", "-d", "main"]
 
 [revset-aliases]
 open = 'bookmarks(regex:"^toby/*")'
