@@ -39,3 +39,7 @@ export DEV_LOG_FORMAT="json"
 export PATH="$PATH:$HOME/.dotnet/tools"
 export DOTNET_ROOT="/home/linuxbrew/.linuxbrew/opt/dotnet/libexec"
 
+dlog() {
+  docker compose logs --no-log-prefix ${1}.internal ${@:2}
+}
+
