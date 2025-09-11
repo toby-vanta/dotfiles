@@ -15,6 +15,8 @@ l = ["log", "-r", "::@"]
 lm = ["log", "-r", "(main..@):: | (main..@)-"]
 la = ["log", "-r", "::"]
 rba = ["rebase", "-b", "open", "-d", "main"]
+ds = ["diff", "--summary"]
+me = ["log", "-r", "author(\"toby.dipasquale@vanta.com\")"]
 
 [revset-aliases]
 open = 'bookmarks(regex:"^toby/*")'
