@@ -43,3 +43,8 @@ dlog() {
   docker compose logs --no-log-prefix ${1}.internal ${@:2}
 }
 
+fx() {
+  jj show -T "" @ --name-only | xargs npx prettier --write
+  jj show -T "" @ --name-only | xargs yarn eslint -c eslint.precommit.mjs --fix --fix-type problem,suggestion,layout
+}
+
