@@ -134,10 +134,27 @@ install_dependencies() {
   fi
 }
 
+jjify_obsidian() {
+  info 'jujutsu-ifying obsidian repo'
+  if [ -d /workspaces/obsidian ]; then
+    JJ=/home/linuxbrew/.linuxbrew/bin/jj
+    cd /workspaces/obsidian
+    $JJ git init --colocate
+    $JJ bookmark track main@origin
+    $JJ git fetch
+    remotes=$(git b -a | grep "toby\/" | grep remotes | sed 's/remotes\/origin\///g' | awk '{print $1}')
+    for remote in $remotes; do
+      $JJ bookmark track ${remote}@origin
+    done
+    $JJ rba
+  fi
+}
+
 echo ''
 install_dotfiles
 install_jj_config
 install_dependencies
+jjify_obsidian
 echo ''
 echo '  All installed!'
 
