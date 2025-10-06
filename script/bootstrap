@@ -154,7 +154,6 @@ echo ''
 install_dotfiles
 install_jj_config
 install_dependencies
-jjify_obsidian
 echo ''
 echo '  All installed!'
 
