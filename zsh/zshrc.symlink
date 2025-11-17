@@ -48,3 +48,11 @@ fx() {
   jj show -T "" @ --name-only | xargs yarn eslint -c eslint.precommit.mjs --fix --fix-type problem,suggestion,layout
 }
 
+reup() {
+  jj git fetch
+  jj rebase -d main
+  jj rba
+  echo
+  jj
+}
+
