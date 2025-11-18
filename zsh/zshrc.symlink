@@ -31,6 +31,8 @@ alias dkillall='docker kill $(docker ps -q)'
 alias drmall='docker rm $(docker ps -qa)'
 # obsidian shortcuts
 alias findLoginLink='docker compose logs --no-log-prefix web.internal | grep loginLink | jq -r .loginLink'
+# Local Materialize Emulator
+alias mz='docker exec -it materialize /usr/bin/psql postgres://materialize@localhost:6875/materialize'
 
 # obsidian repo env var to always log in JSON format
 export DEV_LOG_FORMAT="json"
