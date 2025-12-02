@@ -22,6 +22,7 @@ fail() {
 }
 
 link_files() {
+  rm -f $2
   ln -s $1 $2
   success "linked $1 to $2"
 }
@@ -77,7 +78,7 @@ install_dotfiles() {
 
 install_jj_config() {
   mkdir -p $HOME/.config/jj
-  ln -s $DOTFILES_ROOT/jj/config.toml $HOME/.config/jj/config.toml
+  link_files $DOTFILES_ROOT/jj/config.toml $HOME/.config/jj/config.toml
 }
 
 use_zsh() {
