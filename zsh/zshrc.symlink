@@ -58,3 +58,7 @@ reup() {
   jj
 }
 
+pcjj() {
+  pre-commit run --hook-stage manual --files $(jj diff -f 'fork_point(main | @)' --name-only)
+}
+
