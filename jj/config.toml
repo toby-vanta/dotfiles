@@ -21,3 +21,6 @@ me = ["log", "-r", "author(\"toby.dipasquale@vanta.com\")"]
 [revset-aliases]
 open = 'bookmarks(regex:"^toby/*")'
 
+[remotes.origin]
+auto-track-bookmarks = "toby/*"
+
