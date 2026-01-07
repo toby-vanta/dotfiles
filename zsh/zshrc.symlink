@@ -41,6 +41,9 @@ export DEV_LOG_FORMAT="json"
 export PATH="$PATH:$HOME/.dotnet/tools"
 export DOTNET_ROOT="/home/linuxbrew/.linuxbrew/opt/dotnet/libexec"
 
+# Jujutsu shell completions
+source <(COMPLETE=zsh jj)
+
 dlog() {
   docker compose logs --no-log-prefix ${1}.internal ${@:2}
 }
