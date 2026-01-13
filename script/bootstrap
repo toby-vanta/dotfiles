@@ -110,7 +110,7 @@ install_homebrew() {
   NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
   brew update --force
-  for pkg in jj bottom duf fd; do
+  for pkg in jj bottom duf fd go; do
     brew install $pkg
   done
 }
