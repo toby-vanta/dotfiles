@@ -2,6 +2,10 @@
 set -e
 
 DOTFILES_ROOT="`pwd`"
+IN_CLOUD=0
+if [ ! -z "$CODESPACES" -o ! -z "$IS_ON_ONA" ]; then
+  IN_CLOUD=1
+fi
 
 info() {
   printf "  [ \033[00;34m..\033[0m ] $1"
@@ -32,7 +36,7 @@ install_dotfiles() {
   backup_all=false
   skip_all=false
 
-  if [ ! -z "$CODESPACES" ]; then
+  if [ $IN_CLOUD -eq 1 ]; then
     # Make this script non-interactive at the risk of erasing files
     overwrite_all=true
   fi
@@ -125,7 +129,7 @@ install_reportgenerator() {
 
 install_dependencies() {
   info 'installing dependencies'
-  if [ ! -z "$CODESPACES" ]; then
+  if [ $IN_CLOUD -eq 1 ]; then
     use_zsh
     install_omz
     install_omz_theme
