@@ -6,6 +6,7 @@ IN_CLOUD=0
 if [ ! -z "$CODESPACES" -o ! -z "$IS_ON_ONA" ]; then
   IN_CLOUD=1
 fi
+BREW_PKGS="jj bottom duf fd go"
 
 info() {
   printf "  [ \033[00;34m..\033[0m ] $1"
@@ -114,7 +115,7 @@ install_homebrew() {
   NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
   brew update --force
-  for pkg in jj bottom duf fd go; do
+  for pkg in $BREW_PKGS; do
     brew install $pkg
   done
 }
@@ -147,10 +148,7 @@ jjify_obsidian() {
     $JJ git init --colocate
     $JJ bookmark track main@origin
     $JJ git fetch
-    remotes=$(git b -a | grep "toby\/" | grep remotes | sed 's/remotes\/origin\///g' | awk '{print $1}')
-    for remote in $remotes; do
-      $JJ bookmark track ${remote}@origin
-    done
+    $JJ rebase -d main
     $JJ rba
   fi
 }
@@ -159,6 +157,7 @@ echo ''
 install_dotfiles
 install_jj_config
 install_dependencies
+jjify_obsidian
 echo ''
 echo '  All installed!'
 

@@ -36,6 +36,10 @@ alias mz='docker exec -it materialize /usr/bin/psql postgres://materialize@local
 
 # obsidian repo env var to always log in JSON format
 export DEV_LOG_FORMAT="json"
+export EMAIL="toby.dipasquale@vanta.com"
+export GIT_AUTHOR_EMAIL="toby.dipasquale@vanta.com"
+export GIT_COMMITTER_EMAIL="toby.dipasquale@vanta.com"
+export GITHUB_USER="toby-vanta"
 
 # To be able to run `reportgenerator`
 export PATH="$PATH:$HOME/.dotnet/tools"
